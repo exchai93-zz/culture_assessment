@@ -98,4 +98,9 @@
       return array;
     }
 
+    // Method to retrieve to random dimension categories
+    function getTwoDimensions() {
+      return shuffle(categories).slice(0,2);
+    }
+
 })();
