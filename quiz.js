@@ -116,13 +116,27 @@
         var categoryToDelete = categories.indexOf(category);
         // If the number of statements of the selected dimension category is null
         if(!dimensions[category].length) {
-          // Delete the one dimension category from the categories array 
+          // Delete the one dimension category from the categories array
           categories.splice(categoryToDelete, 1);
         }
       });
     }
 
+    // Build 30 questions
+    function buildAllQuestions() {
+      for (var i = 1; i < numberOfQuestions + 1 ; i++) {
+        buildQuestion(i);
+      }
+    }
 
+    function calculateScore() {
+      var adaptiveScore = document.querySelectorAll("[data-dimension='Adaptive']:checked").length;
+      var integrityScore = document.querySelectorAll("[data-dimension='Integrity']:checked").length;
+      var collaborativeScore = document.querySelectorAll("[data-dimension='Collaborative']:checked").length;
+      var resultScore = document.querySelectorAll("[data-dimension='Result']:checked").length;
+      var customerScore = document.querySelectorAll("[data-dimension='Customer']:checked").length;
+      var detailScore = document.querySelectorAll("[data-dimension='Detail']:checked").length;
+    }
 
 
 })();
