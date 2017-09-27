@@ -98,9 +98,31 @@
       return array;
     }
 
-    // Method to retrieve to random dimension categories
+    // Method to retrieve random dimension categories
     function getTwoDimensions() {
+      // Shuffle the dimension categories and return a new array from index 0 to 2
       return shuffle(categories).slice(0,2);
     }
+
+    // Build one question which has two options
+    function buildQuestion(questionNumber) {
+      // Iterate through each category element
+      getTwoDimensions().forEach(function(category) {
+        // Statements of the selected dimension category
+        var statements = dimensions[category];
+        // Shuffle the array of statements and return the last element
+        var randomStatement = shuffle(statements).pop();
+        // Find the index of the selected dimension category
+        var categoryToDelete = categories.indexOf(category);
+        // If the number of statements of the selected dimension category is null
+        if(!dimensions[category].length) {
+          // Delete the one dimension category from the categories array 
+          categories.splice(categoryToDelete, 1);
+        }
+      });
+    }
+
+
+
 
 })();
