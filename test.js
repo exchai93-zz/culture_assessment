@@ -1,9 +1,7 @@
 (function(){
   'use strict';
-
-  // Dimension categories
+  // 6 dimension catories
   var categories = ["Adaptive", "Integrity", "Collaborative", "Result", "Customer", "Detail"];
-  // Dimension categories with corresponding statements
   var dimensions = {
       "Adaptive": [
                   "I am innovative",
@@ -79,21 +77,16 @@
               ],
     };
 
-  // function buildAssessment(){
-    var display = [];
-    var questions = [];
-
+  function buildAssessment() {}
+    var output = [];
     var numberOfQuestions = 30;
 
-    // Method to shuffle elements in an array
+    // Randomly shuffle elements in an array
     function shuffle(array) {
       var currentIndex = array.length, temporaryValue, randomIndex;
-      // Whilst there are elements to shuffle
       while (0 !== currentIndex) {
-        // Pick a remaining element...
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
-        // And swap it with the current element
         temporaryValue = array[currentIndex];
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
@@ -101,65 +94,29 @@
       return array;
     }
 
-    // Method to retrieve random dimension categories
     function getTwoDimensions() {
-      // Shuffle the dimension categories and return a new array from index 0 to 2
       return shuffle(categories).slice(0,2);
     }
 
-    // Build one question with two options
-    function buildQuestion(questionNumber) {
-      // Iterate through each category element
+    function buildQuestion(questionNumber){
       getTwoDimensions().forEach(function(category) {
-        // Statements of the selected dimension category
         var statements = dimensions[category];
-        // Shuffle the array of statements and return the last element
         var randomStatement = shuffle(statements).pop();
-        // Find the index of the selected dimension category
         var categoryToDelete = categories.indexOf(category);
-        // If the number of statements of the selected dimension category is null
-        if(!dimensions[category].length) {
-          // Delete the one dimension category from the categories array
+        if (!dimensions[category].length) {
           categories.splice(categoryToDelete, 1);
         }
-        return buildQuestion();
+        document.getElementById("quiz").innerHTML += `<label><input type="radio" name='${questionNumber}' value='${category}' data-dimension='${category}'>` + category + ": " + randomStatement + "</label>";
       });
     }
 
-    // Add HTML radio button for each dimension statement
-    // Put question onto the screen
-    for (var i = 0; i < numberOfQuestions; i++) {
+    for (var i = 1; i < numberOfQuestions + 1 ; i++) {
       buildQuestion(i);
       document.getElementById("quiz").innerHTML += "<h2>Question:</h2>" + i + "<hr>";
-      document.getElementById("quiz").innerHTML += `<label><input type="radio" value='${category}' data-dimension='${category}'>` + category + ": " + randomStatement + "</label>";
-      // document.getElementById("quiz").innerHTML += "<h2>Question:</h2>" + i + "<hr>";
-
-      // document.getElementById("quiz").innerHTML = "Pick the option that describes you best: "
-      // document.getElementById("quiz").innerHTML += '<div id="question-number">Question ' + (i + 1) + '</div>';
-      // document.getElementById("quiz").innerHTML += '<div id="statement">Pick the option that describes you best: </div>';
-      // document.getElementById("quiz").innerHTML += `<label><input type="radio" value='${category}' data-dimension='${category}'>
-      // category + ": " + randomStatement + "</label>"`;
-
-
     }
 
+    
 
-    // console.log("This is question: ", questionNumber );
-    // console.log(randomStatement);
-    // console.log(dimensions[category]);
-    // document.getElementById("quiz").innerHTML += `<label><input type="radio" name='${questionNumber}' value='${category}' data-dimension='${category}'>` + category + ": " + randomStatement + "</label>";
+    document.getElementByClass('assessmentContainer').innerHTML += output.join('');
 
-
-  })();
-
-    // var adaptiveScore = document.querySelectorAll("[data-dimension='Adaptive']:checked").length;
-    // var integrityScore = document.querySelectorAll("[data-dimension='Integrity']:checked").length;
-    // var collaborativeScore = document.querySelectorAll("[data-dimension='Collaborative']:checked").length;
-    // var resultScore = document.querySelectorAll("[data-dimension='Result']:checked").length;
-    // var customerScore = document.querySelectorAll("[data-dimension='Customer']:checked").length;
-    // var detailScore = document.querySelectorAll("[data-dimension='Detail']:checked").length;
-    //
-
-  // buildAssessment();
-
-  // assessmentContainer.innerHTML = display.join("");
+})();

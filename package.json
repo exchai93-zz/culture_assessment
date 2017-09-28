@@ -1,0 +1,28 @@
+{
+  "name": "bunch",
+  "version": "1.0.0",
+  "description": "A Culture Assessment",
+  "main": "quiz.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "*"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/exchai93/culture_assessment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/exchai93/culture_assessment/issues"
+  },
+  "homepage": "https://github.com/exchai93/culture_assessment#readme"
+}

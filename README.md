@@ -40,12 +40,17 @@ choice: {statement "_____", dimension: 'collaborative'}
 **Clone this repository**
 ```
 $ git clone https://github.com/exchai93/culture_assessment.git
+$ cd culture_assessment
 ```
+
+
 
 
 ## My approach
 
 I decided to tackle this project using a front-end implemented solution
+
+**Testing:** I decided to use Mocha testing framework and Chai for expectations. This allowed me to make unit tests simple to
 
 ## User Stories MVP
 ```
@@ -65,5 +70,21 @@ I want to see the dimensions with their numerical value.
 ```
 
 ## User Stories - Nice to have
+```
+As a user
+So that I can keep track of my score
+I want to be able to sign up and log in
+```
+```
+As a user
+So that I can think about
+I want each question to appear on a different page
+```
+```
+As a user
+So that I can take this 
+```
 
 ## Future improvements
+
+- There is currently not much of a UI
