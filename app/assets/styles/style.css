@@ -1,10 +1,23 @@
 @font-face {
   font-family: 'HelveticaNeueBold';
-  src: url('fonts/HelveticaNeueBd.ttf');
+  src: url('./fonts/HelveticaNeueBd.ttf');
+}
+
+* {
+  text-align: center;
 }
 
 body {
   font-family: 'HelveticaNeueBold', 'Arial';
   margin: 0;
   padding: 0;
+}
+
+h1 {
+  font-size: 500%;
+}
+
+#question {
+  font-size: 150%;
+  font-style: italic;
 }

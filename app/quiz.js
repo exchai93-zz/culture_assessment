@@ -123,18 +123,16 @@
           categories.splice(categoryToDelete, 1);
         }
         // return buildQuestion();
-        document.getElementById("quiz").innerHTML += `<label><input type="radio" name='${questionNumber}' value='${category}' data-dimension='${category}'>` + category + ": " + randomStatement + "</label>" + "<br><br>";
+        // Print the statement on the DOM with a radio button
+        document.getElementById("quiz").innerHTML += `<label><input type="radio" name='${questionNumber}' value='${category}' data-dimension='${category}'>` + randomStatement + "</label>" + "<br><br>";
       });
     }
 
-    // Add HTML radio button for each dimension statement
     // Put question onto the screen
     for (var i = 0; i < numberOfQuestions; i++) {
-      document.getElementById("quiz").innerHTML += "Question: " + (i+1) + "<hr>";
+      document.getElementById("quiz").innerHTML += "Question: " + (i+1) + "<br>";
       buildQuestion(i);
     }
-
-    // document.getElementByClass('assessmentContainer').innerHTML += output.join('');
 
   })();
 
@@ -147,5 +145,3 @@
 
 
   // buildAssessment();
-
-  // assessmentContainer.innerHTML = display.join("");
