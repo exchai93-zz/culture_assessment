@@ -38,11 +38,10 @@ $ npm install
 ```
 
 **Run application**
-- Locally:
-```
-$
-```
-- Or visited the site hosted by AWS:
+- Locally: copy the full path of `quiz.html`
+
+- Yet to zip build folder to host on AWS site
+
 
 **To run tests**(Currentl N/A)
 ```
