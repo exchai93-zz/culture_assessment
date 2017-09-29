@@ -80,8 +80,6 @@
     };
 
   // function buildAssessment(){
-    var display = [];
-    var questions = [];
 
     var numberOfQuestions = 30;
 
@@ -122,19 +120,19 @@
           // Delete the dimension category from the categories array (to avoid an undefined statement)
           categories.splice(categoryToDelete, 1);
         }
-        // return buildQuestion();
         // Print the statement on the DOM with a radio button
         document.getElementById("quiz").innerHTML += `<label><input type="radio" name='${questionNumber}' value='${category}' data-dimension='${category}'>` + randomStatement + "</label>" + "<br><br>";
       });
     }
 
-    // Put question onto the screen
+    // Print 30 questions
     for (var i = 0; i < numberOfQuestions; i++) {
-      document.getElementById("quiz").innerHTML += "Question: " + (i+1) + "<br>";
+      document.getElementById("quiz").innerHTML += "<hr>" + "Question: " + (i+1) + "<hr>";
       buildQuestion(i);
     }
 
   })();
+
 
     var adaptiveScore = document.querySelectorAll("[data-dimension='Adaptive']:checked").length;
     var integrityScore = document.querySelectorAll("[data-dimension='Integrity']:checked").length;
