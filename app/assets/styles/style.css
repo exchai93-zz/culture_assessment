@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'HelveticaNeueBold';
+  src: url('fonts/HelveticaNeueBd.ttf');
+}
+
+body {
+  font-family: 'HelveticaNeueBold', 'Arial';
+  margin: 0;
+  padding: 0;
+}

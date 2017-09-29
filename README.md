@@ -22,20 +22,9 @@ chosen. Here is a JSON representation:
 		}
 ```    
 
-Question: Pick the option that describes you best
-
-
-SIX DIMENSIONS:
-1. Adaptive
-2. Integrity
-3. Collaborative
-4. Result
-5. Customer
-6. Detail
-
-choice: {statement "_____", dimension: 'collaborative'}
-
 ## Installation
+
+**Make sure you have [Node](https://nodejs.org/en/) installed**
 
 **Clone this repository**
 ```
@@ -43,14 +32,41 @@ $ git clone https://github.com/exchai93/culture_assessment.git
 $ cd culture_assessment
 ```
 
+**Install dependencies**
+```
+$ npm install
+```
 
+**Run application **
+```
+$
+```
 
+**To run tests**
+```
+$ npm test
+```
 
 ## My approach
 
-I decided to tackle this project using a front-end implemented solution
+This is by no means a finish product. I decided to tackle this project by implementing a simple front-end solution with
 
-**Testing:** I decided to use Mocha testing framework and Chai for expectations. This allowed me to make unit tests simple to
+**To refactor:**
+- To render all the questions to the DOM at the the end rather than intermittently throughout my code.
+
+**Testing:** I decided to use Mocha testing framework and Chai assertion library for expectations. This allowed me to make simple unit tests for front end
+
+## Future improvements
+
+- I wanted to focus on making a single page front-end application however due to time constraints.
+- Use an API for the heavy business logic - using tool such as json-server. With the dimensions.json file I would be able to make RESTFUL routes.
+- Progressive web app
+
+- Start entirely again and work on an MVC server side project using Rails. I would generate a questions controller that would have RESTFUL routes i.e. `question/dimension` `question/:id`. To create the questions I would create a seed database with the dimension . Enabling user sign up / log in would be straight forward, using `omniauth`.
+
+## Technologies
+- Javascript
+- Mocha and Chai for testing
 
 ## User Stories MVP
 ```
@@ -61,7 +77,12 @@ I want to answer 30 questions in total
 ```
 As a user
 So that I can answer a question
-I want to be presented with two statements from differing dimension to choose from
+I want to be presented with two statements from differing dimensions to choose from
+```
+```
+As a user
+So that I can finish the assessment
+I want to be able to click a 'submit' button
 ```
 ```
 As a user
@@ -77,14 +98,15 @@ I want to be able to sign up and log in
 ```
 ```
 As a user
-So that I can think about
-I want each question to appear on a different page
+So that I am not overloaded with questions
+I want one question to appear on a page
 ```
 ```
 As a user
-So that I can take this 
+So that I can move onto the next question
+I want to click 'next question'
 ```
-
-## Future improvements
-
-- There is currently not much of a UI
+```
+As a user
+So that I can
+```

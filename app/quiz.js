@@ -1,7 +1,9 @@
 (function(){
   'use strict';
-  // 6 dimension catories
+
+  // Dimension categories
   var categories = ["Adaptive", "Integrity", "Collaborative", "Result", "Customer", "Detail"];
+  // Dimension categories with corresponding statements
   var dimensions = {
       "Adaptive": [
                   "I am innovative",
@@ -77,16 +79,21 @@
               ],
     };
 
-  function buildAssessment() {}
-    var output = [];
+  // function buildAssessment(){
+    var display = [];
+    var questions = [];
+
     var numberOfQuestions = 30;
 
-    // Randomly shuffle elements in an array
+    // Method to shuffle elements in an array
     function shuffle(array) {
       var currentIndex = array.length, temporaryValue, randomIndex;
+      // Whilst there are elements to shuffle
       while (0 !== currentIndex) {
+        // Pick a remaining element...
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
+        // And swap it with the current element
         temporaryValue = array[currentIndex];
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
@@ -94,29 +101,51 @@
       return array;
     }
 
+    // Method to retrieve random dimension categories
     function getTwoDimensions() {
+      // Shuffle the dimension categories and return a new array from index 0 to 2
       return shuffle(categories).slice(0,2);
     }
 
-    function buildQuestion(questionNumber){
+    // Build one question with two options
+    function buildQuestion(questionNumber) {
+      // Iterate through the two random categories
       getTwoDimensions().forEach(function(category) {
+        // Retrieve all the statements of the dimension category
         var statements = dimensions[category];
+        // Shuffle the array of statements and return the last one
         var randomStatement = shuffle(statements).pop();
+        // Find the index of the dimension category
         var categoryToDelete = categories.indexOf(category);
-        if (!dimensions[category].length) {
+        // If the number of statements of the selected dimension category is null
+        if(!dimensions[category].length) {
+          // Delete the dimension category from the categories array (to avoid an undefined statement)
           categories.splice(categoryToDelete, 1);
         }
-        document.getElementById("quiz").innerHTML += `<label><input type="radio" name='${questionNumber}' value='${category}' data-dimension='${category}'>` + category + ": " + randomStatement + "</label>";
+        // return buildQuestion();
+        document.getElementById("quiz").innerHTML += `<label><input type="radio" name='${questionNumber}' value='${category}' data-dimension='${category}'>` + category + ": " + randomStatement + "</label>" + "<br><br>";
       });
     }
 
-    for (var i = 1; i < numberOfQuestions + 1 ; i++) {
+    // Add HTML radio button for each dimension statement
+    // Put question onto the screen
+    for (var i = 0; i < numberOfQuestions; i++) {
+      document.getElementById("quiz").innerHTML += "Question: " + (i+1) + "<hr>";
       buildQuestion(i);
-      document.getElementById("quiz").innerHTML += "<h2>Question:</h2>" + i + "<hr>";
     }
 
-    
+    // document.getElementByClass('assessmentContainer').innerHTML += output.join('');
 
-    document.getElementByClass('assessmentContainer').innerHTML += output.join('');
+  })();
 
-})();
+    var adaptiveScore = document.querySelectorAll("[data-dimension='Adaptive']:checked").length;
+    var integrityScore = document.querySelectorAll("[data-dimension='Integrity']:checked").length;
+    var collaborativeScore = document.querySelectorAll("[data-dimension='Collaborative']:checked").length;
+    var resultScore = document.querySelectorAll("[data-dimension='Result']:checked").length;
+    var customerScore = document.querySelectorAll("[data-dimension='Customer']:checked").length;
+    var detailScore = document.querySelectorAll("[data-dimension='Detail']:checked").length;
+
+
+  // buildAssessment();
+
+  // assessmentContainer.innerHTML = display.join("");
